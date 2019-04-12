@@ -2,8 +2,8 @@ Package: tsar
 Type: Package
 Title: (Nonlinear) Time Series Analysis in R
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Bartlomiej Klimowski
+Maintainer: Bartlomiej Klimowski <bklimowski1@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
@@ -11,3 +11,4 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/bklimowski/tsar
 BugReports: https://github.com/bklimowski/tsar/issues
+RoxygenNote: 6.1.1
