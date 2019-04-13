@@ -6,6 +6,11 @@
 \usage{
 recurrence_matrix(ts, eps)
 }
+\arguments{
+\item{eps}{eps}
+
+\item{time_series}{time series}
+}
 \value{
 Recurrence matrix
 }

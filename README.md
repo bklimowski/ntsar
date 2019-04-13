@@ -4,7 +4,7 @@ tsar
 ====
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/bklimowski/tsar.svg?branch=master)](https://travis-ci.org/bklimowski/tsar) [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) <!-- badges: end -->
+[![Travis build status](https://travis-ci.org/bklimowski/tsar.svg?branch=master)](https://travis-ci.org/bklimowski/tsar) [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) [![Codecov test coverage](https://codecov.io/gh/bklimowski/tsar/branch/master/graph/badge.svg)](https://codecov.io/gh/bklimowski/tsar?branch=master) <!-- badges: end -->
 
 The goal of tsar is to ...
 

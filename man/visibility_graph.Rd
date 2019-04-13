@@ -6,6 +6,9 @@
 \usage{
 visibility_graph(time_series)
 }
+\arguments{
+\item{time_series}{time series}
+}
 \value{
 Visibility Graph as igraph object.)
 }

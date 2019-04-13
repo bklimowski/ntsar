@@ -1,6 +1,8 @@
 #' @title transition_network
 #' @description Create transition network
-#' @param time_series.
+#' @param time_series ts
+#' @param lag lagg
+#' @param embedding embd
 #' @return Transition network as igraph object.
 #' @export
 transition_network <- function(ts, lag, embedding) {

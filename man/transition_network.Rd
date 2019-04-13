@@ -6,6 +6,13 @@
 \usage{
 transition_network(ts, lag, embedding)
 }
+\arguments{
+\item{lag}{lagg}
+
+\item{embedding}{embd}
+
+\item{time_series}{ts}
+}
 \value{
 Transition network as igraph object.
 }

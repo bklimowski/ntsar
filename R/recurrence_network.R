@@ -1,6 +1,7 @@
 #' @title recurrence_network
 #' @description Create recurrence network
-#' @param time_series.
+#' @param time_series time series
+#' @param  eps eps
 #' @return Recurrence network as igraph object.
 #' @export
 recurrence_network <- function(ts, eps) {
@@ -12,7 +13,8 @@ recurrence_network <- function(ts, eps) {
 
 #' @title Recurrence matrix
 #' @description Create recurrence matrix
-#' @param time_series.
+#' @param time_series time series
+#' @param eps eps
 #' @return Recurrence matrix
 #' @export
 recurrence_matrix <- function(ts, eps) {

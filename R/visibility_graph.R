@@ -4,7 +4,7 @@
 
 #' @title visibility_graph
 #' @description Create Visibility Graph
-#' @param time_series.
+#' @param time_series time series
 #' @return Visibility Graph as igraph object.)
 #' @export
 visibility_graph <- function(time_series) {
@@ -27,18 +27,18 @@ fast_VG <- function(ts, left, right) {
     ts_tmp <- ts[left:right]
     k <-  which(ts_tmp==max(ts_tmp))[1] + left -1
 
-    data_frame(v1 = k,
-               v2 = left:right,
-               is_connected =  left:right %>%
-                 map(~nodes_visibility(ts,k,.x)) %>%
-                 unlist()) %>%
+    tibble(v1 = k,
+           v2 = left:right,
+           is_connected =  left:right %>%
+             map(~nodes_visibility(ts,k,.x)) %>%
+             unlist()) %>%
       filter(is_connected == TRUE) %>%
       bind_rows(fast_VG(ts, left, k-1),
                 fast_VG(ts, k+1, right)) %>%
       return()
   }
   else{
-    return(data_frame())
+    return(tibble())
   }
 }
 
