@@ -3,9 +3,8 @@
 
 
 #' @title visibility_graph
-#' @description Create Visibility Graph
-#' @param time_series time series
-#' @return Visibility Graph as igraph object.)
+#' @param time_series time_series.
+#' @return The sum of \code{x} and \code{y}.
 #' @export
 visibility_graph <- function(time_series) {
 

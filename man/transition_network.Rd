@@ -7,15 +7,15 @@
 transition_network(ts, lag, embedding)
 }
 \arguments{
-\item{lag}{lagg}
+\item{lag}{lag}
 
-\item{embedding}{embd}
+\item{embedding}{embds}
 
-\item{time_series}{ts}
+\item{time_series}{time_series.}
 }
 \value{
-Transition network as igraph object.
+The sum of \code{x} and \code{y}.
 }
 \description{
-Create transition network
+transition_network
 }

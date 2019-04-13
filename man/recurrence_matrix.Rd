@@ -2,18 +2,18 @@
 % Please edit documentation in R/recurrence_network.R
 \name{recurrence_matrix}
 \alias{recurrence_matrix}
-\title{Recurrence matrix}
+\title{recurrence_matrix}
 \usage{
 recurrence_matrix(ts, eps)
 }
 \arguments{
-\item{eps}{eps}
+\item{eps}{lag}
 
-\item{time_series}{time series}
+\item{time_series}{time_series.}
 }
 \value{
-Recurrence matrix
+The sum of \code{x} and \code{y}.
 }
 \description{
-Create recurrence matrix
+recurrence_matrix
 }

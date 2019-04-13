@@ -7,13 +7,13 @@
 recurrence_network(ts, eps)
 }
 \arguments{
-\item{eps}{eps}
+\item{eps}{lag}
 
-\item{time_series}{time series}
+\item{time_series}{time_series.}
 }
 \value{
-Recurrence network as igraph object.
+The sum of \code{x} and \code{y}.
 }
 \description{
-Create recurrence network
+recurrence_network
 }
