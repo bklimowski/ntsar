@@ -1,0 +1,38 @@
+---
+title: "Analysis with complex networks"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Analysis_with_complex_networks}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tidyverse)
+library(tsar)
+set.seed(1234)
+```
+
+```{r}
+norm_walk <- cumsum(rnorm(1000))
+cauchy_walk <- cumsum(rcauchy(1000, location = 0, scale = 0.1))
+periodic_series <- sin(1:1000/50) +
+  cos(1:1000/20)^2 +
+  rnorm(1000, mean = 0.15, sd = 0.1)
+
+time_series <- list(norm_walk, cauchy_walk, periodic_series)
+time_series_names <- list("norm_walk", "cauchy_walk", "periodic_series")
+time_series %>% map2(time_series_names, ~plot(.x, type = 'l', main = .y))
+```
+
+```{r}
+visibility_graphs <- time_series %>% map(visibility_graph)
+```
+
