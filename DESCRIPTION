@@ -12,3 +12,9 @@ LazyData: true
 URL: https://github.com/bklimowski/tsar
 BugReports: https://github.com/bklimowski/tsar/issues
 RoxygenNote: 6.1.1
+Imports: 
+    igraph,
+    purrr,
+    dplyr,
+    magrittr,
+    tibble
