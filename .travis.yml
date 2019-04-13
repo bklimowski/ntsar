@@ -2,9 +2,23 @@
 
 language: R
 cache: packages
+services:   docker
+
+tex-config:
+- build-pattern=src/main.tex,src/mwe.tex
+- packages=cancel, exam
+
+script:
+- docker run --mount src=$TRAVIS_BUILD_DIR/,target=/repo,type=bind strauman/travis-latexbuild:small
+
+before_install:
+  - if [[ "$OSTYPE" != "linux-gnu" ]]; then sudo tlmgr install framed titling; fi
 
 before_deploy: Rscript -e 'remotes::install_cran("pkgdown")'
 deploy:
   provider: script
   script: Rscript -e 'pkgdown::deploy_site_github()'
   skip_cleanup: true
+
+
+
