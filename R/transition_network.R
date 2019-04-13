@@ -6,6 +6,8 @@
 #' transition_network(rnorm(100), 2, 5)
 #' @export
 transition_network <- function(ts, lag, embedding) {
+  patterns_sequence <- ordinal_patterns(ts, lag, embedding)
+
   connections <- tibble(
     "out" = patterns_sequence[1:length(patterns_sequence)-1],
     "into" = patterns_sequence[2:length(patterns_sequence)]) %>%
@@ -13,13 +15,13 @@ transition_network <- function(ts, lag, embedding) {
     summarise(weigth = n()) %>%
     mutate(weigth = weigth/sum(weigth))
 
-  graph_from_data_frame(connections) %>%
-    set_vertex_attr("weigth",
+  igraph::graph_from_data_frame(connections) %>%
+    igraph::set_vertex_attr("weigth",
                     value =
                       patterns_sequence %>%
                       janitor::tabyl() %>%
                       pull(.)) %>%
-    set_edge_attr("weigth", value = connections$weigth) %>%
+    igraph::set_edge_attr("weigth", value = connections$weigth) %>%
     return()
 }
 
