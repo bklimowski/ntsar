@@ -7,9 +7,9 @@
 recurrence_matrix(ts, eps)
 }
 \arguments{
-\item{eps}{lag}
+\item{ts}{time_series.}
 
-\item{time_series}{time_series.}
+\item{eps}{lag}
 }
 \value{
 The sum of \code{x} and \code{y}.

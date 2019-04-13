@@ -11,7 +11,7 @@ recurrence_network <- function(time_series, eps) {
 }
 
 #' @title recurrence_matrix
-#' @param time_series time_series.
+#' @param ts time_series.
 #' @param eps lag
 #' @return The sum of \code{x} and \code{y}.
 #' @export
