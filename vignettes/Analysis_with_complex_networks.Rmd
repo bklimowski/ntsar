@@ -15,9 +15,10 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(tidyverse)
 library(tsar)
-set.seed(1234)
+library(purrr)
+library(dplyr)
+set.seed(8314)
 ```
 
 ```{r}
@@ -31,8 +32,22 @@ time_series <- list(norm_walk, cauchy_walk, periodic_series)
 time_series_names <- list("norm_walk", "cauchy_walk", "periodic_series")
 time_series %>% map2(time_series_names, ~plot(.x, type = 'l', main = .y))
 ```
+## Visibility Graph
 
 ```{r}
 visibility_graphs <- time_series %>% map(visibility_graph)
+```
+
+## Recurrence Graph
+
+```{r}
+rec_matrix <- time_series %>% map(~recurrence_matrix(.x, eps = 0.3))
+
+rec_matrix %>% map2(time_series_names,
+                    ~image(.x,
+                           main = .y,
+                           col=gray.colors(2, start = 1, end = 0),
+                           xaxt='n',
+                           yaxt='n'))
 ```
 
