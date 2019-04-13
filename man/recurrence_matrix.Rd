@@ -13,5 +13,5 @@ Recurrence matrix
 Create recurrence matrix
 }
 \examples{
-recurrence_matrix(rnorm(100), 0.5)
+recurrence_matrix(rnorm(10), 0.5)
 }

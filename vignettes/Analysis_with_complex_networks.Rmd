@@ -50,4 +50,9 @@ rec_matrix %>% map2(time_series_names,
                            xaxt='n',
                            yaxt='n'))
 ```
+## Transition networks
+
+```{r}
+
+```
 

@@ -17,7 +17,7 @@ recurrence_network <- function(ts, eps) {
 #' @param time_series.
 #' @return Recurrence matrix
 #' @examples
-#' recurrence_matrix(rnorm(100), 0.5)
+#' recurrence_matrix(rnorm(10), 0.5)
 #' @export
 recurrence_matrix <- function(ts, eps) {
   recurrence_mat <- matrix(0, length(ts), length(ts))
