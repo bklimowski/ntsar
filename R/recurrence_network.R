@@ -3,8 +3,8 @@
 #' @param eps lag
 #' @return The sum of \code{x} and \code{y}.
 #' @export
-recurrence_network <- function(ts, eps) {
-  ts %>%
+recurrence_network <- function(time_series, eps) {
+  time_series %>%
     recurrence_matrix(eps) %>%
     igraph::graph_from_adjacency_matrix() %>%
     return()

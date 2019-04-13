@@ -4,12 +4,12 @@
 \alias{recurrence_network}
 \title{recurrence_network}
 \usage{
-recurrence_network(ts, eps)
+recurrence_network(time_series, eps)
 }
 \arguments{
-\item{eps}{lag}
-
 \item{time_series}{time_series.}
+
+\item{eps}{lag}
 }
 \value{
 The sum of \code{x} and \code{y}.

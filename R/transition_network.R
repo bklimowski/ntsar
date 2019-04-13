@@ -4,8 +4,8 @@
 #' @param embedding embds
 #' @return The sum of \code{x} and \code{y}.
 #' @export
-transition_network <- function(ts, lag, embedding) {
-  patterns_sequence <- ordinal_patterns(ts, lag, embedding)
+transition_network <- function(time_series, lag, embedding) {
+  patterns_sequence <- ordinal_patterns(time_series, lag, embedding)
 
   connections <- tibble(
     "out" = patterns_sequence[1:length(patterns_sequence)-1],

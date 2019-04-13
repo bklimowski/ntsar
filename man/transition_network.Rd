@@ -4,14 +4,14 @@
 \alias{transition_network}
 \title{transition_network}
 \usage{
-transition_network(ts, lag, embedding)
+transition_network(time_series, lag, embedding)
 }
 \arguments{
+\item{time_series}{time_series.}
+
 \item{lag}{lag}
 
 \item{embedding}{embds}
-
-\item{time_series}{time_series.}
 }
 \value{
 The sum of \code{x} and \code{y}.
