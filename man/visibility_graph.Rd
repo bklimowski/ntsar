@@ -7,11 +7,8 @@
 visibility_graph(time_series)
 }
 \value{
-Visibility Graph as igraph object.
+Visibility Graph as igraph object.)
 }
 \description{
 Create Visibility Graph
-}
-\examples{
-visibility_graph(c(13,22,14,33,21))
 }

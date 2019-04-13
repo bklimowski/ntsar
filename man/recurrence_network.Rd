@@ -12,6 +12,3 @@ Recurrence network as igraph object.
 \description{
 Create recurrence network
 }
-\examples{
-recurrence_network(rnorm(100), 0.5)
-}

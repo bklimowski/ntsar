@@ -2,8 +2,6 @@
 #' @description Create transition network
 #' @param time_series.
 #' @return Transition network as igraph object.
-#' @examples
-#' transition_network(rnorm(100), 2, 5)
 #' @export
 transition_network <- function(ts, lag, embedding) {
   patterns_sequence <- ordinal_patterns(ts, lag, embedding)

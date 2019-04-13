@@ -12,6 +12,3 @@ Recurrence matrix
 \description{
 Create recurrence matrix
 }
-\examples{
-recurrence_matrix(rnorm(10), 0.5)
-}

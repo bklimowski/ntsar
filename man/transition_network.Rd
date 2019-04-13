@@ -12,6 +12,3 @@ Transition network as igraph object.
 \description{
 Create transition network
 }
-\examples{
-transition_network(rnorm(100), 2, 5)
-}

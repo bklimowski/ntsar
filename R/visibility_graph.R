@@ -5,9 +5,7 @@
 #' @title visibility_graph
 #' @description Create Visibility Graph
 #' @param time_series.
-#' @return Visibility Graph as igraph object.
-#' @examples
-#' visibility_graph(c(13,22,14,33,21))
+#' @return Visibility Graph as igraph object.)
 #' @export
 visibility_graph <- function(time_series) {
 
