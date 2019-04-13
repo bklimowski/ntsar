@@ -7,11 +7,11 @@
 visibility_graph(time_series)
 }
 \arguments{
-\item{time_series}{time series}
+\item{time_series}{time_series.}
 }
 \value{
-Visibility Graph as igraph object.)
+The sum of \code{x} and \code{y}.
 }
 \description{
-Create Visibility Graph
+visibility_graph
 }

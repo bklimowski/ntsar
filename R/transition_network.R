@@ -1,9 +1,8 @@
 #' @title transition_network
-#' @description Create transition network
-#' @param time_series ts
-#' @param lag lagg
-#' @param embedding embd
-#' @return Transition network as igraph object.
+#' @param time_series time_series.
+#' @param lag lag
+#' @param embedding embds
+#' @return The sum of \code{x} and \code{y}.
 #' @export
 transition_network <- function(ts, lag, embedding) {
   patterns_sequence <- ordinal_patterns(ts, lag, embedding)

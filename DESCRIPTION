@@ -16,7 +16,8 @@ Imports:
     purrr,
     dplyr,
     magrittr,
-    tibble
+    tibble,
+    janitor
 Suggests: 
     knitr,
     rmarkdown,

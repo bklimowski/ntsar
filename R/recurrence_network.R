@@ -1,8 +1,7 @@
 #' @title recurrence_network
-#' @description Create recurrence network
-#' @param time_series time series
-#' @param  eps eps
-#' @return Recurrence network as igraph object.
+#' @param time_series time_series.
+#' @param eps lag
+#' @return The sum of \code{x} and \code{y}.
 #' @export
 recurrence_network <- function(ts, eps) {
   ts %>%
@@ -11,11 +10,10 @@ recurrence_network <- function(ts, eps) {
     return()
 }
 
-#' @title Recurrence matrix
-#' @description Create recurrence matrix
-#' @param time_series time series
-#' @param eps eps
-#' @return Recurrence matrix
+#' @title recurrence_matrix
+#' @param time_series time_series.
+#' @param eps lag
+#' @return The sum of \code{x} and \code{y}.
 #' @export
 recurrence_matrix <- function(ts, eps) {
   recurrence_mat <- matrix(0, length(ts), length(ts))
