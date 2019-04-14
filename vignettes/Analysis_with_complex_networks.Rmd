@@ -24,9 +24,8 @@ set.seed(8314)
 ```{r}
 norm_walk <- cumsum(rnorm(1000))
 cauchy_walk <- cumsum(rcauchy(1000, location = 0, scale = 0.1))
-periodic_series <- sin(1:1000/50) +
-  cos(1:1000/20)^2 +
-  rnorm(1000, mean = 0.15, sd = 0.1)
+periodic_series <- sin(1:1000/50)^3 +
+  cos(1:1000/20)^10
 
 time_series <- list(norm_walk, cauchy_walk, periodic_series)
 time_series_names <- list("norm_walk", "cauchy_walk", "periodic_series")
