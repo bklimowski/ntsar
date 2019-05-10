@@ -80,7 +80,7 @@ b <- res_list %>% flatten_int()
 edglst <- matrix(c(a,b), nc = 2)
 ig <- igraph::graph_from_edgelist(edglst)
 qq <- ig %>% igraph::degree() %>% janitor::tabyl()
-qq$percent %>% plot
+qq$percent %>% log %>% plot
 
 
 horizontal_visibility <- function(ts, left, right) {
