@@ -1,7 +1,7 @@
 Package: tsar
 Type: Package
 Title: (Nonlinear) Time Series Analysis in R
-Version: 0.0.1
+Version: 0.0.0.9
 Author: Bartlomiej Klimowski <bklimowski1@gmail.com>
 Maintainer: Bartlomiej Klimowski <bklimowski1@gmail.com>
 Description: More about what it does (maybe more than one line)

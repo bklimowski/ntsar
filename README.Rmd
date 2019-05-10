@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 tsar ([Nonlinear] **T**ime **S**eries **A**nalysis with **R**) is package dedicated to provide tools derived from dynamical system theory for purpose of analysis nonlinear properties of time series. 
-Developed version should contain things like:
+Developed version will contain things like:
 
 + Estimation of embedding dimension and time lag
 + Attractor reconstruction with machine learning
