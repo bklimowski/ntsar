@@ -8,6 +8,7 @@
 #' @export
 visibility_graph <- function(time_series) {
 
+  # "natural" visibility
   fast_VG(time_series, 1, length(time_series)) %>%
     tibble::rownames_to_column() %>%
     group_by(rowname) %>%
@@ -24,16 +25,18 @@ visibility_graph <- function(time_series) {
 fast_VG <- function(ts, left, right) {
   if (left < right ) {
     ts_tmp <- ts[left:right]
-    k <-  which(ts_tmp==max(ts_tmp))[1] + left -1
+    k <-  which(ts_tmp == max(ts_tmp))[1] + left - 1
 
     tibble(v1 = k,
            v2 = left:right,
-           is_connected =  left:right %>%
+           is_connected =
+             left:right %>%
              map(~nodes_visibility(ts,k,.x)) %>%
-             unlist()) %>%
+             unlist()
+           ) %>%
       filter(is_connected == TRUE) %>%
-      bind_rows(fast_VG(ts, left, k-1),
-                fast_VG(ts, k+1, right)) %>%
+      bind_rows(fast_VG(ts, left, k - 1),
+                fast_VG(ts, k + 1, right)) %>%
       return()
   }
   else{
@@ -50,19 +53,68 @@ nodes_visibility <- function(ts, i, j) {
     return(NaN)
   }
 
-  if (i==j) {
+  if (i == j) {
     return(visibility_condition)
   }
 
-  if(i > j) {
-    return(nodes_visibility(rev(ts), length(ts) - i +1, length(ts)- j +1))
+  if (i > j) {
+    return(nodes_visibility(rev(ts), length(ts) - i + 1, length(ts) - j + 1))
   }
 
   ii <- i + 1
   while (visibility_condition) {
     if (ii == j) {break}
-    visibility_condition <- ts[ii] <= ts[j] + (ts[i] - ts[j]) *((j - ii)/(j - i))
+    visibility_condition <- ts[ii] <= ts[j] + (ts[i] - ts[j]) * ((j - ii)/(j - i))
     ii <- ii + 1
   }
   return(visibility_condition)
+}
+
+ts <- c(4,2,3,4.2,3.2,5, 4 , 10, 11, 2 ,3 ,4)
+i <- 1
+k <- 6
+result <- c( )
+k <- vg1(ts, i, k)
+while (!is.null(k)) {
+ result <- c(result, k)
+ k <-  max_val_ts(ts,1,k)
+}
+
+
+# horiztonta visibility graph ---------------------------------------------
+
+ts <- rnorm(1000)
+map(1:length(ts), ~horizontal_visibility(ts, .x, length(ts)))
+
+horizontal_visibility <- function(ts, left, right) {
+  result <- c( )
+  k <- first_greater(ts, left, right)
+  while (!is.null(k)) {
+    result <- c(result, k)
+    k <-  max_val_ts(ts,left,k)
+  }
+  return(result)
+}
+
+first_greater <- function(ts, left, right) {
+  ts_tmp <- ts[left:right]
+  if (ts[left] == max(ts[left:right])) {
+    return(NULL)
+  }
+  else{
+    return(which(ts_tmp > ts_tmp[1])[1] + left - 1)
+  }
+}
+
+
+max_val_ts <- function(ts, left, right) {
+
+  if ((right - left) > 1) {
+      ts_tmp <- ts[(left + 1):(right - 1)]
+      return(which(ts_tmp == max(ts_tmp))[1] + left)
+  }
+
+  else {
+    return(NULL)
+  }
 }
