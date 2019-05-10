@@ -81,10 +81,17 @@ while (!is.null(k)) {
 }
 
 
-# horiztonta visibility graph ---------------------------------------------
 
-ts <- rnorm(1000)
-map(1:length(ts), ~horizontal_visibility(ts, .x, length(ts)))
+# horizontal visibility graph ---------------------------------------------
+
+ts <- cumsum(rnorm(1000) + sin(1:1000))
+res_list <- map(1:length(ts), ~horizontal_visibility(ts, .x, length(ts)))
+a <- map(1:length(res_list), ~rep(.x,length(res_list[[.x]]))) %>% flatten_int()
+b <- res_list %>% flatten_int()
+edglst <- matrix(c(a,b), nc = 2)
+ig <- igraph::graph_from_edgelist(edglst)
+qq <- ig %>% igraph::degree() %>% janitor::tabyl()
+qq$percent %>% plot
 
 horizontal_visibility <- function(ts, left, right) {
   result <- c( )
@@ -99,10 +106,10 @@ horizontal_visibility <- function(ts, left, right) {
 first_greater <- function(ts, left, right) {
   ts_tmp <- ts[left:right]
   if (ts[left] == max(ts[left:right])) {
-    return(NULL)
+    return(right)
   }
   else{
-    return(which(ts_tmp > ts_tmp[1])[1] + left - 1)
+    return(as.integer(which(ts_tmp > ts_tmp[1])[1] + left - 1) )
   }
 }
 
