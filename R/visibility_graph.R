@@ -70,19 +70,8 @@ nodes_visibility <- function(ts, i, j) {
   return(visibility_condition)
 }
 
-ts <- c(4,2,3,4.2,3.2,5, 4 , 10, 11, 2 ,3 ,4)
-i <- 1
-k <- 6
-result <- c( )
-k <- vg1(ts, i, k)
-while (!is.null(k)) {
- result <- c(result, k)
- k <-  max_val_ts(ts,1,k)
-}
 
-
-
-# horizontal visibility graph ---------------------------------------------
+# horizontal visibility ---------------------------------------------------
 
 ts <- cumsum(rnorm(1000) + sin(1:1000))
 res_list <- map(1:length(ts), ~horizontal_visibility(ts, .x, length(ts)))
@@ -92,6 +81,7 @@ edglst <- matrix(c(a,b), nc = 2)
 ig <- igraph::graph_from_edgelist(edglst)
 qq <- ig %>% igraph::degree() %>% janitor::tabyl()
 qq$percent %>% plot
+
 
 horizontal_visibility <- function(ts, left, right) {
   result <- c( )
