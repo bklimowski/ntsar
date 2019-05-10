@@ -81,10 +81,12 @@ while (!is.null(k)) {
 }
 
 
-# horiztonta visibility graph ---------------------------------------------
+
+# horizontal visibility graph ---------------------------------------------
 
 ts <- rnorm(1000)
 map(1:length(ts), ~horizontal_visibility(ts, .x, length(ts)))
+
 
 horizontal_visibility <- function(ts, left, right) {
   result <- c( )
