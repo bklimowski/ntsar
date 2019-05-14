@@ -1,14 +1,7 @@
 #' @import dplyr
 #' @import purrr
 
-
-#' @title visibility_graph
-#' @param time_series time_series.
-#' @return The sum of \code{x} and \code{y}.
-#' @export
-visibility_graph <- function(time_series) {
-
-  # "natural" visibility
+natural_visibility_graph <- function(time_series) {
   fast_VG(time_series, 1, length(time_series)) %>%
     tibble::rownames_to_column() %>%
     group_by(rowname) %>%
@@ -18,6 +11,7 @@ visibility_graph <- function(time_series) {
     select(vrtx_out, vrtx_in) %>%
     filter(vrtx_out != vrtx_in) %>%
     arrange(vrtx_out, vrtx_in) %>%
+    mutate(view_angle =  atan((time_series[vrtx_in] - time_series[vrtx_out])/(vrtx_in - vrtx_out))) %>%
     igraph::graph_from_data_frame() %>%
     return()
 }
@@ -44,7 +38,6 @@ fast_VG <- function(ts, left, right) {
   }
 }
 
-
 nodes_visibility <- function(ts, i, j) {
 
   visibility_condition <- TRUE
@@ -70,18 +63,18 @@ nodes_visibility <- function(ts, i, j) {
   return(visibility_condition)
 }
 
-
 # horizontal visibility ---------------------------------------------------
 
-ts <- cumsum(rnorm(1000) + sin(1:1000))
-res_list <- map(1:length(ts), ~horizontal_visibility(ts, .x, length(ts)))
-a <- map(1:length(res_list), ~rep(.x,length(res_list[[.x]]))) %>% flatten_int()
-b <- res_list %>% flatten_int()
-edglst <- matrix(c(a,b), nc = 2)
-ig <- igraph::graph_from_edgelist(edglst)
-qq <- ig %>% igraph::degree() %>% janitor::tabyl()
-qq$percent %>% log %>% plot
+horizontal_visibility_graph <- function(ts) {
+  res_list <- map(1:length(ts), ~horizontal_visibility(ts, .x, length(ts)))
 
+  matrix(c(map(1:length(res_list),
+               ~rep(.x,length(res_list[[.x]]))) %>% flatten_int(),
+           res_list %>% flatten_int()),
+         nc = 2) %>%
+    igraph::graph_from_edgelist() %>%
+    return()
+}
 
 horizontal_visibility <- function(ts, left, right) {
   result <- c( )
@@ -103,7 +96,6 @@ first_greater <- function(ts, left, right) {
   }
 }
 
-
 max_val_ts <- function(ts, left, right) {
 
   if ((right - left) > 1) {
@@ -115,3 +107,20 @@ max_val_ts <- function(ts, left, right) {
     return(NULL)
   }
 }
+
+
+time_series <- ts
+df <- fast_VG(time_series, 1, length(time_series)) %>%
+  tibble::rownames_to_column() %>%
+  group_by(rowname) %>%
+  mutate(vrtx_out = min(v1, v2),
+         vrtx_in = max(v1, v2)) %>%
+  ungroup() %>%
+  select(vrtx_out, vrtx_in) %>%
+  filter(vrtx_out != vrtx_in) %>%
+  arrange(vrtx_out, vrtx_in)
+
+visibility_angle <- atan(ts[df$vrtx_in] - ts[df$vrtx_out])/(df$vrtx_in - df$vrtx_out)
+
+
+
