@@ -4,35 +4,31 @@
 #' @param embedding embds
 #' @return The sum of \code{x} and \code{y}.
 #' @export
-transition_network <- function(time_series, lag, embedding) {
-  patterns_sequence <- ordinal_patterns(time_series, lag, embedding)
 
-  connections <- tibble(
-    "out" = patterns_sequence[1:length(patterns_sequence)-1],
-    "into" = patterns_sequence[2:length(patterns_sequence)]) %>%
-    group_by(out, into) %>%
-    summarise(weigth = n()) %>%
-    mutate(weigth = weigth/sum(weigth))
-
-  igraph::graph_from_data_frame(connections) %>%
-    igraph::set_vertex_attr("weigth",
-                    value =
-                      patterns_sequence %>%
-                      janitor::tabyl() %>%
-                      pull(.)) %>%
-    igraph::set_edge_attr("weigth", value = connections$weigth) %>%
-    return()
-}
-
-
-ordinal_patterns <- function(ts, lag, embedding) {
-  1:(length(ts)-embedding) %>% map(~ts[c(.x,.x+lag,.x+embedding)] %>%
-    rank() %>%
-    as.character() %>%
-    paste(collapse = '')) %>%
-    unlist() %>%
-    as.factor() %>%
-    return()
-}
-
-
+# t <- 4
+# m <- 3
+#
+# ts <- sin((1:1000)/30) + runif(1000)
+#
+#
+#
+# ordinal_patterns <-
+#   1:(length(ts)-t*m) %>%
+#   map(~ts[seq(.x, .x+(m*t-1), t)] %>%
+#         rank %>%
+#         invoke(str_c, .)) %>%
+#   as_vector()
+#
+# gg <- tibble(vrtx_out = ordinal_patterns[1:(length(ordinal_patterns)-1)],
+#              vrtx_in = ordinal_patterns[2:length(ordinal_patterns)]) %>%
+#   group_by(vrtx_out, vrtx_in) %>%
+#   summarise(count = n()) %>%
+#   ungroup() %>%
+#   mutate(count = count/sum(count)) %>%
+#   igraph::graph_from_data_frame()
+#
+#
+# igraph::get.edge.attribute(gg)$count
+#
+# plot(gg, edge.curved=.3, edge.arrow.size=.3, edge.width =
+#        igraph::get.edge.attribute(gg)$count*50)
