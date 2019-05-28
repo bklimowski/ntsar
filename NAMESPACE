@@ -3,8 +3,4 @@
 export("%>%")
 export(recurrence_matrix)
 export(recurrence_network)
-export(transition_network)
-export(visibility_graph)
-import(dplyr)
-import(purrr)
 importFrom(magrittr,"%>%")

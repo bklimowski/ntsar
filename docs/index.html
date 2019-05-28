@@ -5,12 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>(Nonlinear) Time Series Analysis in R • tsar</title>
+<title>Nonlinear Time Series Analysis in R • ntsar</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="(Nonlinear) Time Series Analysis in R">
-<meta property="og:description" content="More about what it does (maybe more than one line)">
+<script src="pkgdown.js"></script><meta property="og:title" content="Nonlinear Time Series Analysis in R">
+<meta property="og:description" content="Package is dedicated to provide tools derived from dynamical system theory
+             for purpose of analysis nonlinear properties of time serie">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -30,7 +31,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">tsar</a>
+        <a class="navbar-link" href="index.html">ntsar</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9</span>
       </span>
     </div>
@@ -61,7 +62,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/bklimowski/tsar">
+  <a href="https://github.com/bklimowski/ntsar">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -82,13 +83,13 @@
     
     
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<div id="tsar" class="section level1">
+<div id="ntsar" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#tsar" class="anchor"></a>tsar <img src="reference/figures/logo.png" align="right" alt="" width="360">
+<a href="#ntsar" class="anchor"></a>ntsar <img src="reference/figures/logo.png" align="right" alt="" width="360">
 </h1></div>
 <!-- badges: start -->
 
-<p>tsar ([Nonlinear] <strong>T</strong>ime <strong>S</strong>eries <strong>A</strong>nalysis with <strong>R</strong>) is package dedicated to provide tools derived from dynamical system theory for purpose of analysis nonlinear properties of time series. Developed version will contain things like:</p>
+<p><strong>N</strong>onlinear <strong>T</strong>ime <strong>S</strong>eries <strong>A</strong>nalysis with <strong>R</strong> is package dedicated to provide tools derived from dynamical system theory for purpose of analysis nonlinear properties of time series. Developed version will contain things like:</p>
 <ul>
 <li>Estimation of embedding dimension and time lag</li>
 <li>Attractor reconstruction with machine learning</li>
@@ -98,24 +99,24 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"bklimowski/tsar"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"bklimowski/tsar"</span>)</code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>Creation of <a href="https://en.wikipedia.org/wiki/Recurrence_plot">recurrence matrix</a> from time series.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tsar)</a>
-<a class="sourceLine" id="cb2-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">448</span>)</a>
-<a class="sourceLine" id="cb2-3" title="3">n =<span class="st"> </span><span class="dv">500</span></a>
-<a class="sourceLine" id="cb2-4" title="4">periodic_series &lt;-<span class="st"> </span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Trig">sin</a></span>(<span class="dv">1</span><span class="op">:</span>n<span class="op">/</span><span class="dv">16</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Trig">cos</a></span>(<span class="dv">1</span><span class="op">:</span>n<span class="op">/</span><span class="dv">10</span>)<span class="op">/</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Trig">tan</a></span>(<span class="dv">1</span><span class="op">:</span>n<span class="op">/</span><span class="dv">20</span>)) </a>
-<a class="sourceLine" id="cb2-5" title="5"></a>
-<a class="sourceLine" id="cb2-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(periodic_series, <span class="dt">type =</span> <span class="st">'l'</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tsar)
+<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">448</span>)
+n =<span class="st"> </span><span class="dv">500</span>
+periodic_series &lt;-<span class="st"> </span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Trig">sin</a></span>(<span class="dv">1</span><span class="op">:</span>n<span class="op">/</span><span class="dv">16</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Trig">cos</a></span>(<span class="dv">1</span><span class="op">:</span>n<span class="op">/</span><span class="dv">10</span>)<span class="op">/</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Trig">tan</a></span>(<span class="dv">1</span><span class="op">:</span>n<span class="op">/</span><span class="dv">20</span>)) 
+
+<span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot">plot</a></span>(periodic_series, <span class="dt">type =</span> <span class="st">'l'</span>)</code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="reference/recurrence_matrix.html">recurrence_matrix</a></span>(periodic_series, <span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(<span class="dt">col=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray.colors">gray.colors</a></span>(<span class="dv">2</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">end =</span> <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb3-4" title="4">        <span class="dt">xaxt=</span><span class="st">'n'</span>,</a>
-<a class="sourceLine" id="cb3-5" title="5">        <span class="dt">yaxt=</span><span class="st">'n'</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw"><a href="reference/recurrence_matrix.html">recurrence_matrix</a></span>(periodic_series, <span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(<span class="dt">col=</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/gray.colors">gray.colors</a></span>(<span class="dv">2</span>, <span class="dt">start =</span> <span class="dv">1</span>, <span class="dt">end =</span> <span class="dv">0</span>),
+        <span class="dt">xaxt=</span><span class="st">'n'</span>,
+        <span class="dt">yaxt=</span><span class="st">'n'</span>)</code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-2.png" width="100%"></p>
 </div>
 </div>
@@ -125,9 +126,9 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/bklimowski/tsar">https://​github.com/​bklimowski/​tsar</a>
+<li>Browse source code at <br><a href="https://github.com/bklimowski/ntsar">https://​github.com/​bklimowski/​ntsar</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/bklimowski/tsar/issues">https://​github.com/​bklimowski/​tsar/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/bklimowski/ntsar/issues">https://​github.com/​bklimowski/​ntsar/​issues</a>
 </li>
 </ul>
 </div>

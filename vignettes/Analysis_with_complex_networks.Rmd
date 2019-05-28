@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(tsar)
+library(ntsar)
 library(purrr)
 library(dplyr)
 set.seed(8314)
@@ -31,11 +31,6 @@ time_series <- list(norm_walk, cauchy_walk, periodic_series)
 time_series_names <- list("norm_walk", "cauchy_walk", "periodic_series")
 time_series %>% map2(time_series_names, ~plot(.x, type = 'l', main = .y))
 ```
-## Visibility Graph
-
-```{r}
-visibility_graphs <- time_series %>% map(visibility_graph)
-```
 
 ## Recurrence Graph
 
@@ -48,10 +43,5 @@ rec_matrix %>% map2(time_series_names,
                            col=gray.colors(2, start = 1, end = 0),
                            xaxt='n',
                            yaxt='n'))
-```
-## Transition networks
-
-```{r}
-
 ```
 

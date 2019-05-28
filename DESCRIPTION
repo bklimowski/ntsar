@@ -1,15 +1,16 @@
-Package: tsar
+Package: ntsar
 Type: Package
-Title: (Nonlinear) Time Series Analysis in R
+Title: Nonlinear Time Series Analysis in R
 Version: 0.0.0.9
 Author: Bartlomiej Klimowski <bklimowski1@gmail.com>
 Maintainer: Bartlomiej Klimowski <bklimowski1@gmail.com>
-Description: More about what it does (maybe more than one line)
+Description: Package is dedicated to provide tools derived from dynamical system theory
+             for purpose of analysis nonlinear properties of time serie
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/bklimowski/tsar
-BugReports: https://github.com/bklimowski/tsar/issues
+URL: https://github.com/bklimowski/ntsar
+BugReports: https://github.com/bklimowski/ntsar/issues
 RoxygenNote: 6.1.1
 Imports: 
     igraph,
