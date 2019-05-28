@@ -4,7 +4,7 @@ ntsar <img src="man/figures/logo.png" align="right" alt="" width="360" />
 =========================================================================
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/bklimowski/tsar.svg?branch=master)](https://travis-ci.org/bklimowski/tsar) [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) [![Codecov test coverage](https://codecov.io/gh/bklimowski/tsar/branch/master/graph/badge.svg)](https://codecov.io/gh/bklimowski/tsar?branch=master) <!-- badges: end -->
+[![Travis build status](https://travis-ci.org/bklimowski/ntsar.svg?branch=master)](https://travis-ci.org/bklimowski/tsar) [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) [![Codecov test coverage](https://codecov.io/gh/bklimowski/ntsar/branch/master/graph/badge.svg)](https://codecov.io/gh/bklimowski/tsar?branch=master) <!-- badges: end -->
 
 **N**onlinear **T**ime **S**eries **A**nalysis with **R** is package dedicated to provide tools derived from dynamical system theory for purpose of analysis nonlinear properties of time series. Developed version will contain things like:
 
@@ -17,7 +17,7 @@ Installation
 ------------
 
 ``` r
-devtools::install_github("bklimowski/tsar")
+devtools::install_github("bklimowski/ntsar")
 ```
 
 Example
