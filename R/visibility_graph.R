@@ -109,18 +109,18 @@ max_val_ts <- function(ts, left, right) {
 }
 
 
-time_series <- ts
-df <- fast_VG(time_series, 1, length(time_series)) %>%
-  tibble::rownames_to_column() %>%
-  group_by(rowname) %>%
-  mutate(vrtx_out = min(v1, v2),
-         vrtx_in = max(v1, v2)) %>%
-  ungroup() %>%
-  select(vrtx_out, vrtx_in) %>%
-  filter(vrtx_out != vrtx_in) %>%
-  arrange(vrtx_out, vrtx_in)
-
-visibility_angle <- atan(ts[df$vrtx_in] - ts[df$vrtx_out])/(df$vrtx_in - df$vrtx_out)
+# time_series <- ts
+# df <- fast_VG(time_series, 1, length(time_series)) %>%
+#   tibble::rownames_to_column() %>%
+#   group_by(rowname) %>%
+#   mutate(vrtx_out = min(v1, v2),
+#          vrtx_in = max(v1, v2)) %>%
+#   ungroup() %>%
+#   select(vrtx_out, vrtx_in) %>%
+#   filter(vrtx_out != vrtx_in) %>%
+#   arrange(vrtx_out, vrtx_in)
+#
+# visibility_angle <- atan(ts[df$vrtx_in] - ts[df$vrtx_out])/(df$vrtx_in - df$vrtx_out)
 
 
 
