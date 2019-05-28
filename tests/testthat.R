@@ -1,4 +1,4 @@
 library(testthat)
-library(tsar)
+library(ntsar)
 
 test_check("tsar")
