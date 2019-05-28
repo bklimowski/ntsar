@@ -26,7 +26,7 @@ Example
 Creation of [recurrence matrix](https://en.wikipedia.org/wiki/Recurrence_plot) from time series.
 
 ``` r
-library(tsar)
+library(ntsar)
 set.seed(448)
 n = 500
 periodic_series <- (sin(1:n/16) + cos(1:n/10)/2 + tan(1:n/20)) 
