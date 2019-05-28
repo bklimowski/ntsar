@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# tsar <img src="man/figures/logo.png" align="right" alt="" width="360" />
+# ntsar <img src="man/figures/logo.png" align="right" alt="" width="360" />
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/bklimowski/tsar.svg?branch=master)](https://travis-ci.org/bklimowski/tsar)
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/bklimowski/tsar/branch/master/graph/badge.svg)](https://codecov.io/gh/bklimowski/tsar?branch=master)
 <!-- badges: end -->
 
-tsar ([Nonlinear] **T**ime **S**eries **A**nalysis with **R**) is package dedicated to provide tools derived from dynamical system theory for purpose of analysis nonlinear properties of time series. 
+**N**onlinear **T**ime **S**eries **A**nalysis with **R**) is package dedicated to provide tools derived from dynamical system theory for purpose of analysis nonlinear properties of time series. 
 Developed version will contain things like:
 
 + Estimation of embedding dimension and time lag
@@ -39,7 +39,7 @@ devtools::install_github("bklimowski/tsar")
 Creation of [recurrence matrix](https://en.wikipedia.org/wiki/Recurrence_plot) from time series.
 
 ```{r}
-library(tsar)
+library(ntsar)
 set.seed(448)
 n = 500
 periodic_series <- (sin(1:n/16) + cos(1:n/10)/2 + tan(1:n/20)) 
